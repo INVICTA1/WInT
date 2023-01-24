@@ -1,0 +1,135 @@
+{
+    "userData":{   
+        "id": "111111",
+        "lname": "Иванов",
+        "fname": "Иван",
+        "mname": "Иванович",
+        "rating": "5.0",
+        "login": "vanische65",
+        "email": "ivan.ivanov@mail.ru",
+        "phone": "+375 (33) 354-32-09",
+        "sex": "Мужской",
+        "bdate": "12.05.1965",
+        "cards":[
+            {
+                "type":"master",
+                "number":"4323 **** **** 1224",
+                "cardholder":"IVAN IVANOU",
+                "termdate":"12/24",
+                "cvv":"479",
+                "main": true
+            },
+            {
+                "type":"visa",
+                "number":"9464 **** **** 1373",
+                "cardholder":"MAKSIM KALASHYNSKI",
+                "termdate":"09/23",
+                "cvv":"112",
+                "main": false
+            }
+        ]
+    },
+    "reqData":[
+        {
+            "id": "1",
+            "status": "Активна",
+            "theme": "Установить винду",
+            "location": "Минск Независимости, 19",
+            "payment": "50 BYN",
+            "peopneed": 4,
+            "peopagreed": 0,
+            "createdate": "12.10.2022",
+            "stopdate": "",
+            "wstartdate":"13.10.2022",
+            "wstarttime":"18:00",
+            "minrating":"2.5",
+            "maxrating":"4.0"
+        },
+        {
+            "id": "2",
+            "status": "Отменена",
+            "theme": "Разгрузка фуры",
+            "location": "Минск Независимости, 19",
+            "payment": "0 BYN",
+            "peopneed": 4,
+            "peopagreed": 0,
+            "createdate": "12.10.2022",
+            "stopdate": "12.10.2022",
+            "wstartdate":"13.10.2022",
+            "wstarttime":"14:00",
+            "minrating":"2.0",
+            "maxrating":"4.5"
+        },
+        {
+            "id": "3",
+            "status": "Завершена",
+            "theme": "Ремонт телевизора",
+            "location": "Минск Независимости, 19",
+            "payment": "30 BYN",
+            "peopneed": 1,
+            "peopagreed": 7,
+            "createdate": "10.10.2022",
+            "stopdate": "12.10.2022",
+            "wstartdate":"13.10.2022",
+            "wstarttime":"16:00",
+            "minrating":"3.5",
+            "maxrating":"5.0"
+        }
+    ],
+    "workData":[
+        {
+            "id": "1",
+            "status": "Активна",
+            "theme": "Нарубить дров",
+            "description": "Мне привезли кучу бревен, которые нужно порезать, порубить и сложить в кучу. Работы, примерно, на 3 часа. Справитесь быстрее - угощу пивом.",
+            "location": "Минск Селицкого, 103",
+            "position":[53.842020, 27.705306],
+            "payment": "",
+            "peopneed": 2,
+            "createdate": "11.10.2022",
+            "stopdate": "",
+            "wstartdate":"13.10.2022",
+            "wstarttime":"9:00",
+            "customer":{
+                "name":"Василий Заказчиков",
+                "rating":"3.7"
+            }
+        },
+        {
+            "id": "2",
+            "status": "Отменена",
+            "theme": "Погулять с собакой",
+            "description": "Нужен человек, который погуляет с назойливым засранцем два часа, помоет ему лапы и накормит после прогулки.",
+            "location": "Минск Есенина, 38",
+            "position":[53.8519271,27.4509735],
+            "payment": "0 BYN",
+            "peopneed": 1,
+            "createdate": "11.10.2022",
+            "stopdate": "12.10.2022",
+            "wstartdate":"12.10.2022",
+            "wstarttime":"7:00",
+            "customer":{
+                "name":"Юлия Кастомерова",
+                "rating":"4.5"
+            }
+        },
+        {
+            "id": "3",
+            "status": "Завершена",
+            "theme": "Уборка квартиры",
+            "description": "Нужно убраться в трешке после лютой тусовки. Квартиру уже не восстановить, но можно сделать чистой.",
+            "location": "Минск Небесная, 11",
+            "position":[53.9566261,27.6597785],
+            "payment": "50 BYN",
+            "peopneed": 3,
+            "createdate": "10.10.2022",
+            "stopdate": "12.10.2022",
+            "wstartdate":"12.10.2022",
+            "wstarttime":"12:00",
+            "customer":{
+                "name":"Дмитрий Жук",
+                "rating":"2.4"
+            }
+        }
+    ]
+}
