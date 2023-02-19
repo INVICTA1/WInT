@@ -1,11 +1,10 @@
 import React from "react";
-import Header from "./LoggedHeader";
-import { MapContainer, TileLayer } from 'react-leaflet'
+import NotLoggedHeader from "../components/NotLoggedHeader";
 
 const Home = () => {
   return (
     <div>
-      <Header/>
+      <NotLoggedHeader/>
       <form method="LINK" action="/login">
         <input type="submit" value="Log in"/>
       </form>

@@ -1,33 +1,22 @@
 import React from "react";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import HouseIcon from '@mui/icons-material/House';
-import MonitorIcon from '@mui/icons-material/Monitor';
-import SideBar from "./SideBar"
+import HeaderPic from "../icons/headerPic.png"
+import headerName from "../icons/headerName.png"
+import "./index.css";
+import ProfileIcon from "../icons/profileIcon.jpeg"
 
-export default function Header(){
+export default function LoggedHeader(){
     return(
-        <div style={{width:"100%", display:"flex", alignItems:"center", height:"10vh", backgroundColor:"#49df85"}}>
-            <SideBar/>
-            <HouseIcon
-                title="Домой"
-                style={{width:"auto",height:"100%","padding":"15px"}}
-                onClick={() => {window.location.href = "/"}}
-            />
-            <div style={{fontWeight:"bolder",fontSize:"40px", marginLeft:"auto", marginRight:"auto", paddingLeft:"200px"}}>
-                WORK IN TOUCH
-            </div>
-            <div style={{width:"auto", height:"100%",display:"flex", alignItems:"center",marginLeft:"auto"}}>
-                <MonitorIcon
-                    title="На главную"
-                    style={{width:"auto",height:"100%","padding":"15px"}}
-                    onClick={() => {window.location.href = "/main"}}
-                />
-                <AccountCircleIcon
-                    title="Профиль"
-                    style={{width:"auto",height:"100%","padding":"15px"}}
+        <div className="lheader">
+            <div style={{position:"absolute", height:"15vh", display:"flex", width:"100%", alignItems:"center"}}>
+                <div>
+                  <img src={headerName} style={{height:"auto", width:"30%", marginLeft:"5%"}} onClick={() => {window.location.href = "/home"}}/>
+                </div>
+                <img src={ProfileIcon}
+                    style={{width:"80px",height:"auto", borderRadius:"50%", marginRight:"5%", border:"3px solid #4bde85"}}
                     onClick={() => {window.location.href = "/profile"}}
                 />
             </div>
+            <div><img src={HeaderPic}/></div>
         </div>
     )
 }

@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import {Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import data from "./data.json"
-import Header from "./LoggedHeader"
+import data from "../components/data.json"
+import Header from "../components/LoggedHeader"
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 export default function EditProfile() {
   const [lname, setLname] = useState(data.userData.lname);
   const [fname, setFname] = useState(data.userData.fname);
   const [mname, setMname] = useState(data.userData.mname);
+  const [descr, setDescr] = useState(data.userData.description);
   const [login, setLogin] = useState(data.userData.login);
-  const [email, setEmail] = useState(data.userData.email);
   const [phone, setPhone] = useState(data.userData.phone);
   const [sex, setSex] = useState("");
 
   function validateForm() {
-    return lname.length > 0 && fname.length > 0 && email.length > 0  && login.length > 0;
+    return lname.length > 0 && fname.length > 0 && login.length > 0;
   }
   function handleSubmit(event) {
     event.preventDefault();
@@ -59,6 +61,20 @@ export default function EditProfile() {
               style={{"margin-left":"auto"}}
             />
           </Form.Group>
+          <Form.Group size="lg" controlId="descr" style={{display:"flex", marginTop:"10px", alignItems:"center"}}>
+            <label>
+              Описание
+            </label>
+            <TextField
+              id="outlined-multiline-flexible"
+              label="Описание"
+              multiline
+              maxRows={4}
+              defaultValue={descr}
+              onChange={(e) => setMname(e.target.value)}
+              style={{"margin-left":"auto"}}
+            />
+          </Form.Group>
           <Form.Group size="lg" controlId="login" style={{display:"flex", marginTop:"10px"}}>
             <label>
               Логин*
@@ -67,17 +83,6 @@ export default function EditProfile() {
               type="login"
               value={login}
               onChange={(e) => setLogin(e.target.value)}
-              style={{"margin-left":"auto"}}
-            />
-          </Form.Group>
-          <Form.Group size="lg" controlId="email" style={{display:"flex", marginTop:"10px"}}>
-            <label>
-              E-mail*
-            </label>
-            <Form.Control
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               style={{"margin-left":"auto"}}
             />
           </Form.Group>

@@ -1,11 +1,197 @@
 .nlheader{
     width: 100%;
-    height: 40vh;
+    height: 15vh;
     padding: 0px;
-    background-color:#4bde85;
+    background-color: #141414;
 }
-img{
+.nlheader img{
     width: 100%;
-    height: 40vh;
+    height: 15vh;
 
+}
+
+.lheader{
+  width: 100%;
+  height: 15vh;
+  padding: 0px;
+  background-color: #141414;
+}
+.lheader img{
+  width: 100%;
+  height: 15vh;
+
+}
+  
+.container {
+    position: relative;
+    width: 4%;
+    height: 78%;
+    right: 3%;
+    margin-left: -4%;
+  }
+
+.box {
+    position:absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    top:90%
+}
+
+.first-icon-box {
+    position: absolute;
+    bottom: 0px;
+    opacity: 0;
+    transition: all 0.55s ease-in-out;
+  }
+  
+.box:hover .first-icon-box {
+    bottom: 300%;
+    opacity: 1;
+  }
+
+.third-icon-box {
+    position: absolute;
+    bottom: 0px;
+    opacity: 0;
+    transition: all 0.55s ease-in-out;
+  }
+  
+.box:hover .third-icon-box {
+    bottom: 200%;
+    opacity: 1;
+  }
+.fourth-icon-box {
+    position: absolute;
+    bottom: 0px;
+    opacity: 0;
+    transition: all 0.55s ease-in-out;
+  }
+  
+.box:hover .fourth-icon-box {
+    bottom: 100%;
+    opacity: 1;
+  }
+
+.sbitem{
+  text-transform: none;
+  color: black;
+  font-size: 100%;
+  width: 100%;
+  display: flex;
+  margin-top: 2%;
+}
+
+.sbitemmark{
+  background-color: #e0e0e0;
+  width: 1px;
+  height: 24px;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  background-color:#e0e0e0;
+  margin-left: 1%;
+}
+
+.sbitem:hover .sbitemmark{
+  background-color: #4bde85;
+  border: 1px solid #4bde85;
+}
+
+.sbitemchev{
+  color: #e0e0e0;
+}
+
+.sbitem:hover .sbitemchev{
+  color: #4bde85;
+}
+
+.ctbut{
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-left: auto;
+}
+
+.ctbutchev{
+  font-size: 90%;
+  color: #868484;
+}
+
+.ctbut:hover .ctbutchev{
+  color: #4bde85;
+}
+
+.otbut{
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-left: auto;
+}
+
+.otbutmenu{
+  font-size: 150%;
+  color: #868484;
+}
+
+.otbut:hover .otbutmenu{
+  color: #4bde85;
+}
+
+.filpane:hover{
+  color: #4bde85;
+}
+
+.cancelbut{
+  display: none;
+}
+
+.profphoto{
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.photoshadow{
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top:3px;
+  left:3px;
+}
+
+.profphoto:hover .photoshadow{
+  display: flex;
+  background-color: black;
+  opacity: 50%;
+  border-radius: 50%;
+  position: absolute;
+  align-items: center;
+}
+
+.drop-down {
+  padding: 0px;
+  z-index: 1000;
+  list-style: none;
+  opacity: 100%;
+  border-radius: 4px;
+  position:absolute;
+  margin-top: 235px;
+  margin-left: -18px;
+}
+
+.drop-down li {
+  padding: 10px 10px;
+  width: 120px;
+  text-align: left;
+  background: none;
+}
+
+li:hover{
+  background: #ededed;
 }

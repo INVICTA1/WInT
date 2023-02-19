@@ -6,7 +6,7 @@ import PaidIcon from '@mui/icons-material/Paid';
 import RecordVoiceOverOutlinedIcon from '@mui/icons-material/RecordVoiceOverOutlined';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import Paper from "@mui/material/Paper"
-import EditRequest from "./EditRequest";
+import EditRequest from "../pages/EditRequest";
 
 function statusCheck ({item}) {
   if(item.status === "Активна"){

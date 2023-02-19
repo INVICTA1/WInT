@@ -1,29 +1,20 @@
 import React,{useState} from "react";
-import MainPageRequest from "./MainPageRequest"
+import MainPageRequest from "../components/MainPageRequest"
 import {Form} from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import data from "./data.json"
-import Header from "./LoggedHeader"
+import Button from "@mui/material/Button";
+import data from "../components/data.json";
+import LoggedHeader from "../components/LoggedHeader"
 import Drawer from "@mui/material/Drawer";
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
-import FilterAltRoundedIcon from '@mui/icons-material/FilterAltRounded';
-import RefreshRoundedIcon from '@mui/icons-material/RefreshRounded';
 import Divider from "@material-ui/core/Divider";
-import { MapContainer, TileLayer, ZoomControl, Marker, Popup } from 'react-leaflet'
-import L from 'leaflet';
-import marker from '../icons/marker.png';
-import markerShadow from '../icons/markershadow.png';
-
-const myIcon = new L.Icon({
-  iconUrl: marker,
-  shadowUrl: markerShadow,
-
-  iconSize:     [38, 57], // size of the icon
-  shadowSize:   [42, 50], // size of the shadow
-  iconAnchor:   [22, 55], // point of the icon which will correspond to marker's location
-  shadowAnchor: [4, 50],  // the same for the shadow
-  popupAnchor:  [-3, -56]     
-});
+import Map from "../components/Map";
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { createTheme, ThemeProvider  } from '@mui/material/styles';
+import { Paper } from "@mui/material";
+import { faFilter, faListUl, faMapLocationDot, faRotateRight } from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import SideBar from "../components/SideBar";
 
 const drawerWidth = Math.floor(document.documentElement.clientWidth / 4.5);
 
@@ -45,33 +36,68 @@ export default function MainPage() {
     setOpenFilter(false);
   };
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#4bde85',
+      },
+      secondary: {
+        main: '#4bde85',
+      },
+    },
+  });
+
+  const [alignment, setAlignment] = React.useState('map');
+
+  const handleViewChange = (event, newAlignment) => {
+    if (newAlignment !== null) {
+      setAlignment(newAlignment);
+    }
+  };
+
   return (
-    <div style={{display:"grid", alignItems:"stretch"}}>
-      <Header/>
-      <div style = {{width:"100%", display:"flex", position:"relative"}}>
-          <div style={{height: "90vh", width: "100%", position:"absolute",zIndex:"300"}}>
-            <MapContainer 
-              center={[53.904397, 27.555946]} 
-              zoom={11} 
-              zoomControl={false} 
-              style={{ height: '100%', width: '100%' }}
-            >
-              <TileLayer
-                attribution='&amp;copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              {data.workData.map((item) =>
-                <Marker position={item.position} icon={myIcon}>
-                  <Popup>
-                    <MainPageRequest item={item}/>
-                  </Popup>
-                </Marker>
-              )}
-              <ZoomControl position='bottomleft'/>
-            </MapContainer>
+    <div style={{display:"grid"}}>
+      <LoggedHeader/>
+      <SideBar/>
+      <div style = {{width:"100%", position:"relative"}}>
+        <div style={{position:"absolute",height: "85vh", width:"100%"}}>
+          <div style={{height: "100%", width:"100%"}}>
+            {alignment === "map"? <Map itemData = {data}/>:<div style={{width:"50%", position:"absolute", top:90, left:"23.7%"}}>
+          {data.workData.map((item) =>  
+          <Paper elevation="15" style={{width:"100%", height:"10vh", marginBottom:"2.5%", padding:"2.5%"}}>
+            <MainPageRequest item={item}/>
+          </Paper>)}
+        </div>}
           </div>
-          <FilterAltRoundedIcon style={{height:"10vh", width:"auto", right:"0", top:"190", padding:"1.5%", position:"absolute",zIndex:"500"}} onClick={handleFilterOpen}/>
-          <RefreshRoundedIcon style={{height:"10vh", width:"auto", right:"0", top:"280", padding:"1.5%", position:"absolute",zIndex:"500"}} onClick={() => {window.location.href = "/main"}}/>
+        </div>
+        <ThemeProvider theme={theme}>
+          <ToggleButtonGroup
+            color="primary"
+            value={alignment}
+            exclusive
+            orientation="vertical"
+            onChange={handleViewChange}
+            aria-label="Platform"
+            style={{width:"4%", position:"absolute", top:"35vh", zIndex:"500"}}
+            size = "large"
+            sx={{ boxShadow: 3 }}
+          >
+            <ToggleButton style={{fontWeight:"bolder", backgroundColor:"white", width:"100%"}} value="map"><FontAwesomeIcon icon={faMapLocationDot} style={{fontSize:"140%"}}/></ToggleButton>
+            <ToggleButton style={{fontWeight:"bolder", backgroundColor:"white", width:"100%"}} value="list"><FontAwesomeIcon icon={faListUl} style={{fontSize:"140%"}}/></ToggleButton>
+          </ToggleButtonGroup>
+          <ToggleButtonGroup
+            color="primary"
+            variant="contained"
+            orientation="vertical"
+            aria-label="outlined button group"
+            style={{width:"4%",position:"absolute", right:"0%", top:"35vh", zIndex:"500"}}
+            size = "large"
+            sx={{ boxShadow: 3, border:"none"}}
+          >
+            <ToggleButton className="filpane" style={{fontWeight:"bolder", backgroundColor:"white", width:"100%"}} onClick={handleFilterOpen}><FontAwesomeIcon icon={faFilter} style={{fontSize:"140%"}}/></ToggleButton>
+            <ToggleButton className="filpane" style={{fontWeight:"bolder", backgroundColor:"white", width:"100%"}} onClick={() => {window.location.href = "/main"}}><FontAwesomeIcon icon={faRotateRight} style={{fontSize:"140%"}}/></ToggleButton>
+          </ToggleButtonGroup>
+        </ThemeProvider>
       </div>
           <Drawer
             sx={{
@@ -79,7 +105,8 @@ export default function MainPage() {
               flexShrink: 0,
               "& .MuiDrawer-paper": {
                 width: drawerWidth,
-                boxSizing: "border-box"
+                boxSizing: "border-box",
+                border:"1px solid black"
               }
             }}
             variant="temporary"

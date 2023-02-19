@@ -6,20 +6,20 @@ import {
   Redirect,
 } from "react-router-dom";
   
-import Home from "./components/Home";
-import Login from "./components/Login";
-import ContactUs from "./components/ContactUs";
-import ForgotPWD from "./components/ForgotPWD";
-import Registration from "./components/Registration";
-import RegistrationForm from "./components/RegistrationForm";
-import RegistrationVerification from "./components/RegistrationVerification";
-import MainPage from "./components/MainPage";
-import MyRequests from "./components/MyRequests";
-import Profile from "./components/Profile";
-import EditProfile from "./components/EditProfile"
-import MyWorks from "./components/MyWorks";
-import MyCards from "./components/MyCards";
-import EditRequest from "./components/EditRequest";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import ContactUs from "./pages/ContactUs";
+import ForgotPWD from "./pages/ForgotPWD";
+import Registration from "./pages/Registration";
+import RegistrationForm from "./pages/RegistrationForm";
+import RegistrationVerification from "./pages/RegistrationVerification";
+import MainPage from "./pages/MainPage";
+import MyRequests from "./pages/MyRequests";
+import Profile from "./pages/Profile";
+import EditProfile from "./pages/EditProfile"
+import MyWorks from "./pages/MyWorks";
+import MyCards from "./pages/MyCards";
+import EditRequest from "./pages/EditRequest";
   
 function App() {
   return (

@@ -1,10 +1,10 @@
 import React,{useState} from "react";
-import WorkRequest from "./WorkRequest"
+import WorkRequest from "../components/WorkRequest"
 import {Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import data from "./data.json"
-import Header from "./LoggedHeader"
-
+import data from "../components/data.json"
+import LoggedHeader from "../components/LoggedHeader"
+import SideBar from "../components/SideBar";
 
 export default function MyRequests() {
   const [statusActive, setStatusActive] = useState(false);
@@ -27,7 +27,8 @@ export default function MyRequests() {
   const [secondWStartTime, setSecondWStartTime] = useState("");
   return (
     <div>
-      <Header/>
+      <LoggedHeader/>
+      <SideBar/>
       <div style = {{display:"flex"}}>
         <div  style={{border:"1px solid gray"}}>
           <Form.Group size="lg" controlId="wstatus" style={{ display:"grid"}}>

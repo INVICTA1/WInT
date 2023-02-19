@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import Header from "./LoggedHeader"
+import LoggedHeader from "../components/LoggedHeader"
 
 export default function EditRequest() {
   const [theme, setTheme] = useState("");
@@ -21,7 +21,7 @@ export default function EditRequest() {
   }
   return (
     <div>
-      <Header/>
+      <LoggedHeader/>
       <div style={{ width:"40%", height:"auto", marginLeft:"30%", marginTop:"5%", marginBottom:"10%"}}>
         <Form onSubmit={handleSubmit} style={{"margin-left":"auto","margin-right":"auto"}}>
           <Form.Group size="lg" controlId="theme" style={{display:"flex", marginTop:"10px"}}>

@@ -1,10 +1,10 @@
 import React,{useState} from "react";
-import WorkItem from "./WorkItem"
+import WorkItem from "../components/WorkItem"
 import {Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import data from "./data.json"
-import Header from "./LoggedHeader"
-
+import data from "../components/data.json"
+import LoggedHeader from "../components/LoggedHeader"
+import SideBar from "../components/SideBar";
 
 export default function MyWorks() {
   const [statusActive, setStatusActive] = useState(false);
@@ -25,7 +25,8 @@ export default function MyWorks() {
 
   return (
     <div>
-      <Header/>
+      <LoggedHeader/>
+      <SideBar/>
       <div style = {{display:"flex"}}>
         <div  style={{border:"1px solid gray"}}>
           <Form.Group size="lg" controlId="wstatus" style={{ display:"grid"}}>

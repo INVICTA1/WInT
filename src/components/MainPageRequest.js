@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faGear} from "@fortawesome/free-solid-svg-icons";
+import {faCalendarDays, faClock, faLocationDot, faUserGroup} from "@fortawesome/free-solid-svg-icons";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import Paper from "@mui/material/Paper"
@@ -12,7 +12,8 @@ import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
 import ScheduleRoundedIcon from '@mui/icons-material/ScheduleRounded';
 import PaidRoundedIcon from '@mui/icons-material/PaidRounded';
 import "./index.css";
-import ProfilePhoto from "./ProfilePhoto.png"
+import ProfilePhoto from "../icons/ProfilePhoto.png"
+import { Button, Divider } from "@mui/material";
 
 export default function WorkItem({item}) {
   const [openMore, setOpenMore] = React.useState(false);
@@ -83,37 +84,52 @@ export default function WorkItem({item}) {
   }
 
   return (
-    <div style={{height:"auto", width:"100%", display:"flex", alignItems:"center"}}>
-      <div style={{ width:"50%"}}>
-        <div style={{display:"flex"}}>
-            <tm style={{fontWeight:"bolder"}}>{item.theme}</tm>
-            <i style={{marginLeft:"1%"}}><FontAwesomeIcon icon={faGear}/></i>
+    <div style={{height:"auto", width:"100%", display:"flex", marginLeft:"10px", marginRight:"200px"}}>
+      <div style={{ width:"100%", display:"block",height:"30%"}}>
+        <div style={{display:"flex", alignItems:"center", marginRight:"20px", height:"100%", width:"100%"}}>
+            <tm style={{fontWeight:"bolder", fontSize:"20px", width:"auto", height:"100%"}}>{item.theme}
+              <Divider color="#4bde85"/>
+            </tm>
+            <Button sx={{textTransform:"none", height:"50%", width:"22%", marginTop:"5px",marginLeft:"auto", marginRight:"5%"}} title="Подробнее" style={{ border:"2px solid #4bde85", borderRadius:"4px", display:"flex", alignItems:"center", padding:"3px", fontSize:"100%",fontWeight:"bold", backgroundColor:"white", color:"#4bde85"}} 
+              onClick = {handleMoreOpen}>
+              Подробнее
+            </Button>
         </div>
-        <div  style={{display:"flex", alignItems:"center"}}>
-            <i><LocationOnIcon/></i>
-            <tm>{item.location}</tm>
-        </div>
-        <div style={{display:"flex"}}>
-            <tm>Создана </tm>
-            <tm>{item.createdate}</tm>
-        </div>
-      </div>
-      <div style={{display:"flex", alignItems:"center",marginLeft:"auto", marginRight:"auto", width:"20%"}}>
-        <tm>Начало {item.wstartdate} в {item.wstarttime}</tm>
-      </div>
-      <div style={{ width:"15%",marginLeft:"auto",marginRight:"auto", display:"grid"}}>
-        <Paper title="Подробнее" style={{width:"auto", borderRadius:"2px", display:"flex", alignItems:"center",marginBottom:"4px", padding:"3px", backgroundColor:"#d9d7d7"}} 
-          onClick = {handleMoreOpen}>
-          Подробнее
-        </Paper>
-        <div style={{display:"flex", alignItems:"center"}}>
-          <div style={{display:"flex", alignItems:"center"}}>
-            <i><PeopleAltOutlinedIcon/></i>
-            <tm>{item.peopneed}</tm>
+        <div style={{display:"flex", alignItems:"center", width:"auto", height:"auto"}}>
+          <div style={{display:"block", alignItems:"center"}}>
+            <div style={{display:"flex", alignItems:"center", marginTop:"0%", fontSize:"16px"}}>
+                <FontAwesomeIcon icon={faLocationDot} style={{color:"#4bde85"}}/>
+                <div style={{marginLeft:"5px", marginTop:"2px"}}>{item.location}</div>
+            </div>
+            <div style={{display:"flex", alignItems:"center", marginTop:".1%"}}>
+              <div style={{display:"flex", alignItems:"center", fontSize:"16px"}}>
+                <FontAwesomeIcon icon={faCalendarDays} style={{color:"#4bde85"}}/>
+                <div style={{marginLeft:"5px", marginTop:"2px"}}>{item.wstartdate}</div>
+              </div>
+              <div style={{display:"flex", alignItems:"center", fontSize:"16px", marginLeft:"8px", marginRight:"8px"}}>
+                <FontAwesomeIcon icon={faClock} style={{color:"#4bde85"}}/>
+                <div style={{marginLeft:"5px", marginTop:"2px"}}>{item.wstarttime}</div>
+              </div>
+              <div style={{display:"flex", alignItems:"center", fontSize:"16px"}}>
+                <FontAwesomeIcon icon={faUserGroup} style={{color:"#4bde85"}}/>
+                <div style={{marginLeft:"5px", marginTop:"2px"}}>{item.peopneed}</div>
+              </div>
+            </div>
           </div>
-          <Paper title="Откликнуться" style={{display:"flex", alignItems:"center", marginLeft:"15%", color:"green", backgroundColor:"#d9d7d7"}}>
-            <i><HowToRegRoundedIcon/></i>
-          </Paper>
+          <div style={{height:"120%", width:"35%", marginLeft:"auto", marginRight:"5%", display:"block", marginTop:"8px"}}>
+            <Button sx={{textTransform:"none", height:"35px", width:"100%"}} title="Откликнуться" style={{ borderRadius:"4px", display:"flex", alignItems:"center",marginBottom:"4px", padding:"3px", fontSize:"100%",fontWeight:"bold", backgroundColor:"#4bde85", color:"white"}} >
+              Откликнуться
+            </Button>
+            <div style={{display:"flex", alignItems:"center"}}>
+              <div style={{marginLeft:"auto", width:"auto", color:"#545454"}}>Обновлено 11.10.2022</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div style={{ width:"auto",marginLeft:"auto",marginRight:"auto", display:"grid"}}>
+        <div style={{display:"flex", alignItems:"center"}}>
+          
         </div>
       </div>
       <Drawer

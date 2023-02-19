@@ -1,14 +1,16 @@
 import React from "react";
-import Card from "./Card"
+import Card from "../components/Card"
 import Paper from "@mui/material/Paper"
-import data from "./data.json"
+import data from "../components/data.json"
 import AddCardIcon from '@mui/icons-material/AddCard';
-import Header from "./LoggedHeader"
+import LoggedHeader from "../components/LoggedHeader"
+import SideBar from "../components/SideBar";
 
 export default function MyCards() {
   return (
     <div>
-      <Header/>
+      <LoggedHeader/>
+      <SideBar/>
       <div style={{display:"flex", width:"100%"}}>
         <div style={{display:"flex", alignItems:"center",height:"auto", width:"auto", marginLeft:"auto", marginRight:"auto"}}>
           <Paper style={{marginLeft:"30px",marginRight:"8px", alignItems:"center", display:"flex",width:"300px", height:"180px", borderRadius:"8px", backgroundColor:"#f7f7f7"}}>
